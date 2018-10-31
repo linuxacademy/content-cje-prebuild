@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.go.test</groupId>
+  <artifactId>gohello</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>mvn-golang</packaging>
+  
+  <name>Hello GoLang</name>
+  <description>Simple 'Hello World!' GoLang example</description>
+  <url>https://github.com/raydac/mvn-golang</url>
+
+  <properties>
+    <mvn.golang.go.version>1.10.2</mvn.golang.go.version>
+    <mvn.golang.get.packages.file>${basedir}${file.separator}packages.txt</mvn.golang.get.packages.file>
+    <go.wrapper.plugin.version>2.2.0</go.wrapper.plugin.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+    <mvn.version>3.0</mvn.version>
+    <final.extension></final.extension>
+  </properties>
+
+  <inceptionYear>2018</inceptionYear>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <prerequisites>
+    <maven>${mvn.version}</maven>
+  </prerequisites>
+
+  <profiles>
+    <profile>
+      <id>windows-profile</id>
+      <activation>
+        <os>
+          <family>windows</family>
+        </os>
+      </activation>
+      <properties>
+        <final.extension>.exe</final.extension>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <defaultGoal>clean package</defaultGoal>
+    <finalName>makeindex</finalName>
+    <sourceDirectory>${basedir}${file.separator}src</sourceDirectory>
+    <directory>${basedir}${file.separator}bin</directory>
+    <resources>
+      <resource>
+        <directory>${basedir}${file.separator}res</directory>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>com.igormaznitsa</groupId>
+        <artifactId>mvn-golang-wrapper</artifactId>
+        <version>${go.wrapper.plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <!--<goPath>${basedir}</goPath>-->
+          <!--<enforceGoPathToEnd>true</enforceGoPathToEnd>-->
+          <!--<verbose>true</verbose>-->
+        </configuration>
+        <executions>
+          <execution>
+            <id>default-build</id>
+            <configuration>
+              <packages>
+                <main>makeindex.go</main>
+              </packages>
+            </configuration>
+          </execution>
+          <execution>
+            <id>golang-run</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <packages>
+                <app>makeindex.go</app>
+              </packages>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
