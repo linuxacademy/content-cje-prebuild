@@ -8,7 +8,7 @@ pipeline{
 		    
 		     post {
                         success {
-                          archiveArtifacts 'index.html'            
+                          archiveArtifacts '/go/index.html'            
                         }
                      }
                 }
