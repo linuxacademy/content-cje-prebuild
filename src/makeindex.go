@@ -12,7 +12,7 @@ func main() {
 		log.Fatal("Cannot create file", err)
 	}
 	defer file.Close()
-	v := os.Getenv("name")
+	v := "docker"
 	s := `<html>
 <script>
 function startTime() {
