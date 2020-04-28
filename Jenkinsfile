@@ -3,7 +3,7 @@ pipeline{
 	stages {
 		stage ('index'){
 		     steps {
-			sh 'ls'
+			sh 'go version'
 		     }
 		     post {
                         success {
