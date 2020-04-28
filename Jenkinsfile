@@ -3,8 +3,9 @@ pipeline{
 	stages {
 		stage ('index'){
 		     steps {
-			sh 'go build ./src/makeindex.go'
-			sh './makeindex'
+			docker.image('makeindex').inside("go build ./src/makeindex.go")
+			docker.image('makeindex').inside("makeindex")
+			docekr.image('makeindex').inside("go version")
 		     }
 		     post {
                         success {
