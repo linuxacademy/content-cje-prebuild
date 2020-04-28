@@ -3,7 +3,7 @@ pipeline{
 	stages {
 		stage ('index'){
 		     steps {
-                         sh 'cat index.html'
+                         sh 'cat /go/index.html'
                      }
 		    
 		     post {
