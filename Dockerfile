@@ -4,5 +4,5 @@ WORKDIR /go/src
 COPY . .
 
 
-CMD ["makeindex"]
+ENTRYPOINT ["go"]
 
