@@ -3,8 +3,8 @@ pipeline{
 	stages {
 		stage ('index'){
 		     steps {
-		        sh label: '', script: '''VAR=$(docker create makeindex bash)
-docker cp $VAR:/go/index.html .'''   
+		        sh label: '', script: '''docker create --name=once makeindex bash)
+docker cp once:/go/index.html .'''   
                      }
 		    
 		     post {
