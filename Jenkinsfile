@@ -3,14 +3,9 @@ pipeline{
 	stages {
 		stage ('index'){
 		     steps {
-                         sh 'cat /go/index.html'
+                         archiveArtifacts '/go/index.html'
                      }
 		    
-		     post {
-                        success {
-                          archiveArtifacts '/go/index.html'            
-                        }
-                     }
                 }
         }
 }
