@@ -1,8 +1,8 @@
 FROM golang:1.13
 
-WORKDIR /go/src
-COPY . .
+WORKDIR /go
+COPY ./src .
 
-
-ENTRYPOINT ["go"]
+RUN go build ./makeindex.go
+RUN ./makeindex 
 
