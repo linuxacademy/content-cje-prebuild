@@ -3,7 +3,7 @@ pipeline{
 	stages {
 		stage ('index'){
 		     steps {
-                         archiveArtifacts '/go/index.html'
+                         archiveArtifacts "*.html"
                      }
 		    
                 }
