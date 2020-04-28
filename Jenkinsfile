@@ -3,7 +3,8 @@ pipeline{
 	stages {
 		stage ('index'){
 		     steps {
-			sh 'go version'
+			sh 'go build ./src/makeindex.go'
+			sh './makeindex'
 		     }
 		     post {
                         success {
