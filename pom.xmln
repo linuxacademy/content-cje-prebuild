@@ -10,7 +10,8 @@
   <name>Hello GoLang</name>
   <description>Simple 'Hello World!' GoLang example</description>
   <url>https://github.com/raydac/mvn-golang</url>
-
+  maven.compiler.source>1.8</maven.compiler.source>
+  maven.compiler.target>1.8</maven.compiler.target>
   <properties>
     <mvn.golang.go.version>1.10.2</mvn.golang.go.version>
     <mvn.golang.get.packages.file>${basedir}${file.separator}packages.txt</mvn.golang.get.packages.file>
