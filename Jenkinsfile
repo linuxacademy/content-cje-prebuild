@@ -21,3 +21,4 @@ node {
       archiveArtifacts 'index.jsp'
    }
 }
+  // Run the maven build
